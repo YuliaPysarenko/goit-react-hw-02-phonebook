@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Form from './Form';
-import shortid from "shortid";
+// import shortid from "shortid";
 
 class App extends Component {
   state = {
@@ -81,10 +81,13 @@ class App extends Component {
 
 
   render() {
-    // return <Form/>
+    // return 
     return (
-    <section>
-        <Form objectForm={this.objectFormInput} />
+      <section>
+        <Form />
+        {/* <Form objectForm={this.objectFormInput} /> */}
+
+
         {/* <h1>Phonebook</h1>
         < form onSubmit={this.handleSubmit}>
           <label htmlFor={this.nameInputId}>

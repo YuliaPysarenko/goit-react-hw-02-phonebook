@@ -22,23 +22,23 @@ class Form extends Component {
     //  this.handleContacts()
     this.reset()
     //  this.props.objectForm(this.state)
-    // this.addContact()
+      this.addContact()
   }
 
   reset = () => {
     this.setState({ name: '', number: '' })
   }
 
-  // addContact = () => {
-  //   if (this.state !== '') {
-  //     this.render(
-  //        <ul>
-  //          <li key={this.state.name}>{this.state.value}
-  //        </li>
-  //         </ul> 
-  //     )
-  //   }
-  // }
+  addContact = () => {
+   
+      this.render(
+         <ul>
+           <li key={this.state.name}>{this.state.name} {this.state.number}
+         </li>
+          </ul> 
+      )
+    
+  }
 
   render() {
     return (
@@ -86,11 +86,11 @@ class Form extends Component {
           //   type="text"
           //   name="filter"
           //   onChange={this.handleInputContacts}/>  */}
-           
+{/*            
            <ul>
-           <li key={this.state.name}>{this.state.name} {this.state.number}
+            <li key={this.state.name}>{this.state.name} {this.state.number}
          </li>
-          </ul> 
+          </ul>  */}
 {/* 
              <ul>
             <li key={this.state.name}>{this.props.objectForm(this.state) }
