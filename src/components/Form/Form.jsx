@@ -21,24 +21,24 @@ class Form extends Component {
     e.preventDefault()
     //  this.handleContacts()
     this.reset()
-    // this.props.objectForm(this.state)
-    this.addContact()
+     this.props.objectForm(this.state)
+    // this.addContact()
   }
 
   reset = () => {
     this.setState({ name: '', number: '' })
   }
 
-  addContact = () => {
-    if (this.state !== '') {
-      this.render(
-         <ul>
-           <li key={this.state.name}>{this.state.value}
-         </li>
-          </ul> 
-      )
-    }
-  }
+  // addContact = () => {
+  //   if (this.state !== '') {
+  //     this.render(
+  //        <ul>
+  //          <li key={this.state.name}>{this.state.value}
+  //        </li>
+  //         </ul> 
+  //     )
+  //   }
+  // }
 
   render() {
     return (
