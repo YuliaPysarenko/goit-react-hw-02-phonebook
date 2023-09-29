@@ -21,7 +21,7 @@ class Form extends Component {
     e.preventDefault()
     //  this.handleContacts()
     this.reset()
-     this.props.objectForm(this.state)
+    //  this.props.objectForm(this.state)
     // this.addContact()
   }
 
