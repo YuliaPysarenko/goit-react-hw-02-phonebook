@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import Form from './Form';
+import Form from './Form';
 import shortid from "shortid";
 
 class App extends Component {
@@ -13,26 +13,27 @@ class App extends Component {
   contacts: [],
   
   filter: '',
-  name: '',
-  number: ''
+  // name: '',
+  // number: ''
+   }
+
+  // myRef = React.createRef();
+  // myRefNumber = React.createRef();
+  // myRefFind = React.createRef();
+
+  // nameInputId = shortid.generate();
+  // numberInputId = shortid.generate();
+  // findContactsId = shortid.generate();
+
+  objectFormInput = (data) => {
+    // data = {
+    //   name: ,
+    //   number:'',
+    // }
+    
+   return console.log(data)
+
   }
-
-  myRef = React.createRef();
-  myRefNumber = React.createRef();
-  myRefFind = React.createRef();
-
-  nameInputId = shortid.generate();
-  numberInputId = shortid.generate();
-  findContactsId = shortid.generate();
-
-  // objectNameId = (data) => {
-  //   data = {
-  //     name: '',
-  //     id: '', 
-  //     number:'',
-  //   }
-  //   return data
-  // }
 
   // handleInput = (e) => {
   //   this.setState({
@@ -46,42 +47,45 @@ class App extends Component {
   //   })
   // }
 
-  handleInputContacts = (e) => {
-    const {name,value} = e.currentTarget
-    this.setState({
-      [name]:value
-   })
-  }
+  // handleInputContacts = (e) => {
+  //   const {name,value} = e.currentTarget
+  //   this.setState({
+  //     [name]:value
+  //  })
+  // }
 
-    handleContacts = () => {
-      let inputValue = this.myRef.current.value;
-      let inputValueNumber = this.myRefNumber.current.value;
-      let contacts = this.state.contacts;
-      contacts.push(inputValue, inputValueNumber);
+  //   handleContacts = () => {
+  //     let inputValue = this.myRef.current.value;
+  //     let inputValueNumber = this.myRefNumber.current.value;
+  //     let contacts = this.state.contacts;
+  //     contacts.push(inputValue, inputValueNumber);
       
   
-      this.setState({
-        'contacts': contacts 
-      })
-      // this.state.contacts.value = '';
-  }
+  //     this.setState({
+  //       'contacts': contacts 
+  //     })
+  //     // this.state.contacts.value = '';
+  // }
 
-  handleSubmit = e => {
-    e.preventDefault()
-   this.handleContacts()
+  // handleSubmit = e => {
+  //   e.preventDefault()
+  //  this.handleContacts()
   
-    this.reset()
-  }
+  //   this.reset()
+  // }
 
-  reset = () => {
-    this.setState({ name: '', number: '', filter: ''})
-  }
+  // reset = () => {
+  //   this.setState({ name: '', number: '', filter: ''})
+  // }
+  
+
 
   render() {
     // return <Form/>
     return (
-    <div>
-        <h1>Phonebook</h1>
+    <section>
+        <Form objectForm={this.objectFormInput} />
+        {/* <h1>Phonebook</h1>
         < form onSubmit={this.handleSubmit}>
           <label htmlFor={this.nameInputId}>
             Name
@@ -95,8 +99,8 @@ class App extends Component {
   title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
   required
   onChange={this.handleInputContacts}/>
-          </label>
-          <label htmlFor={this.numberInputId}>
+          </label> */}
+          {/* <label htmlFor={this.numberInputId}>
            Number
             <input
   ref={this.myRefNumber}            
@@ -111,26 +115,29 @@ class App extends Component {
 /> </label>
      
           <button type="Submit">Add contact</button>
-          </form>
-        <h2>Contacts</h2>
-        <div>
-          Find contacts by name
+          </form> */}
+        {/* <h2>Contacts</h2>
+        <div> */}
+          {/* Find contacts by name
           <input 
             ref={this.myRefFind}
             id={this.findContactsId}
             value={this.state.filter}
             type="text"
             name="filter"
-            onChange={this.handleInputContacts}/>
-          
+            onChange={this.handleInputContacts}/> */}
+{/*           
           <ul>{this.state.contacts.map(item =>
             <li key={this.nameInputId}>{item}
+              <span>
+
+              </span>
             </li>)}
-        </ul>
-        </div>
+          </ul> */}
+       {/* </div> */}
       
      {/* </form>  */}
-     </div> 
+     </section> 
 
     )
   }
