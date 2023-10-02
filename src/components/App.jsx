@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Form from './Form';
-// import shortid from "shortid";
+import shortid from "shortid";
 
 class App extends Component {
   state = {
@@ -15,25 +15,43 @@ class App extends Component {
   filter: '',
   // name: '',
   // number: ''
-   }
+  }
+  
+  // addContact - це має бути метод, що приходить в компонент форми як пропс.
+  //  В компоненті Арр цей метод має додавати об'єкт контакта в стейт
 
   // myRef = React.createRef();
   // myRefNumber = React.createRef();
   // myRefFind = React.createRef();
 
-  // nameInputId = shortid.generate();
+    nameInputId = shortid.generate();
   // numberInputId = shortid.generate();
   // findContactsId = shortid.generate();
 
-  objectFormInput = (data) => {
-    // data = {
-    //   name: ,
-    //   number:'',
-    // }
-    
-   return console.log(data)
+  // objectFormInput = ({name, number}) => {
+  //   this.setState({
+  //   name: name,
+  //   number: number})
+  // }
 
+
+ objectFormInput = ({id, name,number}) => {
+   this.setState({
+     contacts: [{
+       id: id,
+       name: name,
+       number: number} ]
+   })
   }
+
+  //  addContact = () => {
+  //     this.render(
+  //        <ul>
+  //          <li key={this.state.name}>{this.state.name} {this.state.number}
+  //        </li>
+  //         </ul> 
+  //     )
+  // }
 
   // handleInput = (e) => {
   //   this.setState({
@@ -81,46 +99,12 @@ class App extends Component {
 
 
   render() {
-    // return 
     return (
       <section>
-        <Form />
-        {/* <Form objectForm={this.objectFormInput} /> */}
+        <Form objectForm={this.objectFormInput} />
 
-
-        {/* <h1>Phonebook</h1>
-        < form onSubmit={this.handleSubmit}>
-          <label htmlFor={this.nameInputId}>
-            Name
-            <input 
-  ref={this.myRef}
-  id={this.nameInputId}
-  value={this.state.name}
-  type="text"
-  name="name"
-  pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-  title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-  required
-  onChange={this.handleInputContacts}/>
-          </label> */}
-          {/* <label htmlFor={this.numberInputId}>
-           Number
-            <input
-  ref={this.myRefNumber}            
-  id={this.numberInputId}
-  value= {this.state.number}
-  type="tel"
-  name="number"
-  pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-  title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-  required
-  onChange={this.handleInputContacts}           
-/> </label>
-     
-          <button type="Submit">Add contact</button>
-          </form> */}
-        {/* <h2>Contacts</h2>
-        <div> */}
+        <h2>Contacts</h2>
+        <div>
           {/* Find contacts by name
           <input 
             ref={this.myRefFind}
@@ -129,22 +113,15 @@ class App extends Component {
             type="text"
             name="filter"
             onChange={this.handleInputContacts}/> */}
-{/*           
+         
           <ul>{this.state.contacts.map(item =>
             <li key={this.nameInputId}>{item}
-              <span>
-
-              </span>
             </li>)}
-          </ul> */}
-       {/* </div> */}
-      
-     {/* </form>  */}
+          </ul> 
+       </div>
      </section> 
-
     )
   }
- 
 }
 // export const App = () => {
 //   return (

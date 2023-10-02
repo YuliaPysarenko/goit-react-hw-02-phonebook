@@ -21,24 +21,15 @@ class Form extends Component {
     e.preventDefault()
     //  this.handleContacts()
     this.reset()
-    //  this.props.objectForm(this.state)
-      this.addContact()
+    this.props.objectForm(this.state)
+      // this.addContact()
   }
 
   reset = () => {
     this.setState({ name: '', number: '' })
   }
 
-  addContact = () => {
-   
-      this.render(
-         <ul>
-           <li key={this.state.name}>{this.state.name} {this.state.number}
-         </li>
-          </ul> 
-      )
-    
-  }
+ 
 
   render() {
     return (
@@ -74,9 +65,10 @@ class Form extends Component {
      
           <button type="Submit">Add contact</button>
         </form>
-
+{/* 
         <h2>Contacts</h2>
-         <div>  
+        <div>  
+      */}
     
           {/* Find contacts by name
           // <input 
@@ -90,14 +82,9 @@ class Form extends Component {
            <ul>
             <li key={this.state.name}>{this.state.name} {this.state.number}
          </li>
-          </ul>  */}
-{/* 
-             <ul>
-            <li key={this.state.name}>{this.props.objectForm(this.state) }
-         </li>
-          </ul>   */}
-          
-          </div>
+          </ul>  
+           */}
+          {/* </div> */}
       </section>
 
   )
