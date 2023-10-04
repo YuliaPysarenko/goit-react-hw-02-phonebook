@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import shortid from "shortid";
+import css from './App.module.css'
 
 import Form from './Form';
 import ContactsList from './ContactsList';
@@ -27,44 +28,60 @@ class App extends Component {
     
   }
  
- objectFormInput = ({name, number}) => {
-   const newContacts = {
-         id: shortid.generate(),
-         name,
-         number
-   }
-   this.setState(prevState => ({
-    contacts: [newContacts, ...prevState.contacts]
-  }
-  ))
-  }
+  addContact = ({ name, number }) => {
+    const newContacts = {
+      id: shortid.generate(),
+      name,
+      number
+    }
+    const { contacts } = this.state;
+
+    if (contacts.some((contact) => contact.name === name)) {
+      alert(`${name} is already in contacts!`);
+    } else {
+        this.setState(prevState => ({
+      contacts: [newContacts, ...prevState.contacts]
+    })
+      )
+    }
+    }
+
 
   filterContacts = () => {
     const { filter, contacts } = this.state;
-    const normalazedFilter = filter.toLowerCase();
+    const normalizedFilter = filter.toLowerCase();
+      const filterContactsFind = contacts.filter(
+        ({ name, number }) =>
+          name.toLowerCase().includes(normalizedFilter) ||
+          number.toLowerCase().includes(normalizedFilter));
+      return filterContactsFind;    
+  }
 
-      return filter ? contacts.filter(
-      contact => contact.text.toLowerCase().includes(normalazedFilter)) : this.state.contacts
-    
+  deleteContact = (idcontact) => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact=> contact.id !== idcontact)
+    }))
   }
  
   render() {
-     const filterContactsFind = this.filterContacts();
+   const filterContactsFind = this.filterContacts();
 
     return (
-      <section>
-        <h1>Phonebook</h1>
-        <Form objectForm={this.objectFormInput} />
+      <section className={css.sectionApp}>
+        <h1 className={css.title}>Phonebook</h1>
+        <Form objectForm={this.addContact} />
 
-        <h2>Contacts</h2>
-
+        <h2 className={css.title}>Contacts</h2>
         <Filter value={this.state.filter } filter={ this.filterValue} />
-        <ContactsList contacts={filterContactsFind}/>
-        {/* <ContactsList contacts={this.state.contacts}/> */}
+        <ContactsList contacts={filterContactsFind} buttonDelete={this.deleteContact } />
      </section> 
     )
   }
+
 }
+
+
+
 // export const App = () => {
 //   return (
    

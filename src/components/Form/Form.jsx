@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import shortid from "shortid";
+import PropTypes from 'prop-types';
+import css from './Form.module.css';
 
 class Form extends Component {
   state = {
@@ -34,11 +36,11 @@ class Form extends Component {
     return (
       <section>
       
-        <form onSubmit={this.handleSubmit}>
-               {/* <label> */}
+        <form onSubmit={this.handleSubmit} className={css.form}>
           <label htmlFor={this.nameInputId}>
             Name
             <input
+               className={css.inputForm}
               id={this.nameInputId}
               value={this.state.name}
               type="text"
@@ -50,9 +52,8 @@ class Form extends Component {
           </label>
         
           <label htmlFor={this.numberInputId}>
-             {/* <label> */}
             Number
-            <input
+            <input className={css.inputForm}
               id={this.numberInputId}
               value={this.state.number}
               type="tel"
@@ -64,32 +65,15 @@ class Form extends Component {
             />
           </label>
      
-          <button type="Submit">Add contact</button>
+          <button type="Submit" className={css.buttonForm}>Add contact</button>
         </form>
-{/* 
-        <h2>Contacts</h2>
-        <div>  
-      */}
-    
-          {/* Find contacts by name
-          // <input 
-          //   // ref={this.myRefFind}
-          //   id={this.findContactsId}
-          //   value={this.state.filter}
-          //   type="text"
-          //   name="filter"
-          //   onChange={this.handleInputContacts}/>  */}
-{/*            
-           <ul>
-            <li key={this.state.name}>{this.state.name} {this.state.number}
-         </li>
-          </ul>  
-           */}
-          {/* </div> */}
+        
       </section>
-
   )
-  }
- 
+  } 
+}
+
+Form.propTypes = {
+  objectForm: PropTypes.func.isRequired
 }
 export default Form;
