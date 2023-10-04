@@ -3,7 +3,7 @@ import shortid from "shortid";
 import css from './App.module.css'
 
 import Form from './Form';
-import ContactsList from './ContactsList';
+import ContactList from './ContactList';
 import Filter from './Filter';
 
 class App extends Component {
@@ -73,7 +73,7 @@ class App extends Component {
 
         <h2 className={css.title}>Contacts</h2>
         <Filter value={this.state.filter } filter={ this.filterValue} />
-        <ContactsList contacts={filterContactsFind} buttonDelete={this.deleteContact } />
+        <ContactList contacts={filterContactsFind} buttonDelete={this.deleteContact } />
      </section> 
     )
   }

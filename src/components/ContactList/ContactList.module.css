@@ -1,14 +1,21 @@
-.list {
+.listItem {
   padding: 0px;
+ 
 }
 .item {
     display: flex;
-    justify-content: start;
     align-items: center;
 
     margin-bottom: 10px;
    
 }
+.itemPage{
+  margin-top: 0px;
+}
+.number{
+margin-left: 10px;
+}
+
 .deleteButton {
     margin-left: 15px;
     padding: 5px 3px;

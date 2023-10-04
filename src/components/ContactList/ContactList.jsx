@@ -1,18 +1,18 @@
 import React from "react";
 import shortid from "shortid";
 import PropTypes from 'prop-types';
-import css from './ContactList.module.css'
+import css from './ContactList.module.css';
 
  const idList = shortid.generate();
 
-const ContactsList = ({ contacts,buttonDelete }) => {
+const ContactList = ({ contacts,buttonDelete }) => {
     return (
         <div>
-           <ul className={css.list} key={idList}>{contacts.map(({id,name,number}) =>
+           <ul className={css.listItem} key={idList}>{contacts.map(({id,name,number}) =>
             <li className={css.item} key= {shortid.generate()}>
-               <p>
+               <p className={css.itemPage}>
                  <span>{name}:</span>
-                 <span>{number}</span>
+                 <span className={css.number}>{number}</span>
                </p>
                <button type="button" onClick={() => buttonDelete(id)} className={css.deleteButton}>Delete</button>
               
@@ -23,9 +23,9 @@ const ContactsList = ({ contacts,buttonDelete }) => {
       
 }
 
-ContactsList.protoType = {
+ContactList.protoType = {
   contacts: PropTypes.func.isRequired,
   buttonDelete: PropTypes.func.isRequired
 }
 
-export default ContactsList
+export default ContactList
