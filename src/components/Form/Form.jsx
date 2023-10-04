@@ -15,14 +15,13 @@ class Form extends Component {
     this.setState({
       [name]: value
     })
-     
   }
+
+
   handleSubmit = e => {
     e.preventDefault()
-    //  this.handleContacts()
     this.reset()
-    this.props.objectForm(this.state)
-      // this.addContact()
+    this.props.objectForm(this.state)  
   }
 
   reset = () => {
@@ -34,8 +33,9 @@ class Form extends Component {
   render() {
     return (
       <section>
-        <h1>Phonebook</h1>
+      
         <form onSubmit={this.handleSubmit}>
+               {/* <label> */}
           <label htmlFor={this.nameInputId}>
             Name
             <input
@@ -50,6 +50,7 @@ class Form extends Component {
           </label>
         
           <label htmlFor={this.numberInputId}>
+             {/* <label> */}
             Number
             <input
               id={this.numberInputId}
