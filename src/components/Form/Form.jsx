@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import shortid from "shortid";
+// import shortid from "shortid";
 import PropTypes from 'prop-types';
 import css from './Form.module.css';
 
@@ -9,8 +9,8 @@ class Form extends Component {
     number: ''
   }
 
-  nameInputId = shortid.generate();
-  numberInputId = shortid.generate();
+  // nameInputId = shortid.generate();
+  // numberInputId = shortid.generate();
 
   handleInputContacts = (e) => {
     const { name, value } = e.currentTarget
@@ -37,11 +37,12 @@ class Form extends Component {
       <section>
       
         <form onSubmit={this.handleSubmit} className={css.form}>
-          <label htmlFor={this.nameInputId}>
+          {/* <label htmlFor={this.nameInputId}> */}
+            <label>
             Name
             <input
                className={css.inputForm}
-              id={this.nameInputId}
+              // id={this.nameInputId}
               value={this.state.name}
               type="text"
               name="name"
@@ -50,11 +51,11 @@ class Form extends Component {
               required
               onChange={this.handleInputContacts} />
           </label>
-        
-          <label htmlFor={this.numberInputId} >
+        <label>
+          {/* <label htmlFor={this.numberInputId} > */}
             Number
             <input className={css.inputForm}
-              id={this.numberInputId}
+              // id={this.numberInputId}
               value={this.state.number}
               type="tel"
               name="number"
