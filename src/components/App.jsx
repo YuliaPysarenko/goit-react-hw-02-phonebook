@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import shortid from "shortid";
 import css from './App.module.css'
+import shortid from "shortid";
 
 import Form from './Form';
 import ContactList from './ContactList';
@@ -17,9 +17,6 @@ class App extends Component {
   
   filter: '',
   }
-
-     idList = shortid.generate();
-     findContactsId = shortid.generate();
 
   filterValue = (e) => {
     this.setState({
@@ -51,10 +48,13 @@ class App extends Component {
     const { filter, contacts } = this.state;
     const normalizedFilter = filter.toLowerCase();
       const filterContactsFind = contacts.filter(
-        ({ name, number }) =>
-          name.toLowerCase().includes(normalizedFilter) ||
-          number.toLowerCase().includes(normalizedFilter));
-      return filterContactsFind;    
+      //   ({ name, number }) =>
+      //     name.toLowerCase().includes(normalizedFilter) ||
+      //     number.toLowerCase().includes(normalizedFilter));
+      // return filterContactsFind;  
+         ({ name}) =>
+          name.toLowerCase().includes(normalizedFilter));
+      return filterContactsFind;   
   }
 
   deleteContact = (idcontact) => {
