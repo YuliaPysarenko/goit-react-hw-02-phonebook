@@ -4,7 +4,7 @@ import css from './ContactList.module.css';
 import ElementContactList from "components/ElementContactList";
 
 
-const ContactList = ({contacts, buttonDelete }) => {
+const ContactList = ({contacts, buttonDelete}) => {
     return (
         <div>
            <ul className={css.listItem}>{contacts.map(({id,name,number}) =>
@@ -12,7 +12,7 @@ const ContactList = ({contacts, buttonDelete }) => {
                <ElementContactList
                  name={name}
                  number={number}
-                //  onDelete={()=>buttonDelete(id)} />
+                 id={id}
                 onDelete={buttonDelete} />
              </li>)}
        
